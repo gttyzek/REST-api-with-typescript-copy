@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+    <title>BMart | <%= title %></title>
+<body>
+<%- include('./partials/nav.ejs') %>
+
+<div class="d-flex justify-content-center m-4">
+    <a class="btn btn-primary create-account m-2" href="/create">Add Book</a>
+    <a class="btn btn-primary create-account m-2" href="/books">Back</a>
+</div>
+<div class="container">
+    <% if(authorBook) { %>
+        <% authorBook.forEach(book => { %>
+            <div class="style_it card d-inline-flex flex-row p-3 justify-content-around" style="width: 18rem; border-radius: 20px;">
+                <div class="d-inline-flex flex-column justify-content-around">
+                    <div style="max-width: 17rem; max-height: 17rem;">
+                        <a href="/book/<%= book._id %>"><img class="card-img-top" src="<%= book.images %>" alt="Card image cap" 
+                            style="max-width: 17rem; max-height: 17rem;"></a>
+                    </div>
+                    <div style="max-width: 17rem;">
+                        <div class="card-body">
+                            <a href="/book/<%= book._id %>"><h5 class="card-title"><%= book.title %></h5></a>
+                            <p class="card-text"><%= book.description %></p>
+                        </div>
+                         <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Year: <%= book.datePublished %></li>
+                            <li class="list-group-item">Page Count: <%= book.pageCount %></li>
+                            <li class="list-group-item">Genre: <%= book.genre %></li>
+                            <li class="list-group-item">Publisher: <%= book.publisher %></li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="/update/<%= book._id %>" class="card-link btn btn-primary create-account">Update</a>
+                            <a href="/delete/<%= book._id %>" class="card-link btn btn-primary create-account">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    <% } %>
+
+</div>
+
+<%- include('./partials/footer.ejs') %>
+</body>
+</html>

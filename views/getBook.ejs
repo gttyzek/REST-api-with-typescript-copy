@@ -1,0 +1,45 @@
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+    <title>BMart | <%= title %></title>
+<body>
+<%- include('./partials/nav.ejs') %>
+
+        <div class="selectBook d-flex justify-content-center" style="background-color: rgba(255, 255, 255, 0.199); height: 500px; width: 100%;">
+            <div class="d-inline-block mt-5">
+                <img style="height: 600px; background-color: none" src="<%= book.images %>">
+            </div>
+            <div class="style d-inline-block mt-5">
+                <h2 class="">Book Details</h2><br>
+                <ul class="list-group list-group-flush">
+                    <!-- <li class="list-group-item">ID: <%= book._id %></li> -->
+                    <li class="list-group-item">Title: <%= book.title %></li>
+                    <li class="list-group-item">Description: <%= book.description %></li>
+                    <li class="list-group-item">Year: <%= book.datePublished %></li>
+                    <li class="list-group-item">Page Count: <%= book.pageCount %></li>
+                    <li class="list-group-item">Genre: <%= book.genre %></li>
+                    <li class="list-group-item">Publisher: <%= book.publisher %></li>
+                </ul><br>
+                <h2>Book Summary</h2>
+                <p><%= book.bookSummary %>
+                    <!-- <em>The Subtle Art Of Not Giving A Fuck</em> delivers a counterintuitive approach to living a good life<br>
+                    Not giving a fuck is not about being indifferent. It just means you're comfortable with being different. <br>
+                    Don't say fuck it to everything in life, just to the unimportant things<br><br>
+                    Whether you realize it or not, you are always choosing what to give a fuck about.<br>
+                    The key is to gradually prune the things you care about, <br>
+                    so that you only give a fuck on the most important of occasions. -->
+                </p>
+                    <div>
+                        <a href="/books" class="btn btn-primary create-account">Back</a>
+                    </div>
+            </div>
+        </div>
+
+        <!-- <footer class="page-footer>
+            <div class="container text-center>
+            <%- include('./partials/footer.ejs') %>
+            </div>
+        </footer> -->
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+    <title>BMart | <%= title %></title>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <div class="registration-form">
+        <div class="col text-center py-3">
+            <h1 style="font-size: 60px">Update Book</h1>
+        </div>
+            <form action="/update/<%= book._id %>" method="POST" enctype="multipart/form-data">
+                <div class="form-icon">
+                    <span><i class="icon icon-user"></i></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" name="title" id="title" placeholder="Title" value="<%= book.title %>" required>
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control item" name="images" id="image" placeholder="Image URL" value="<%= book.images %>">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" name="datePublished" id="datePublished" placeholder="Date Published" value="<%= book.datePublished %>" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" name="description" id="description" placeholder="Description" value="<%= book.description %>" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control item" name="pageCount" id="pageCount" placeholder="Page Count" value="<%= book.pageCount %>" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="genre" name="genre" placeholder="Genre" value="<%= book.genre %>" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control item" id="publisher" name="publisher" placeholder="Publisher" value="<%= book.publisher %>" required>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" id="bookSummary" name="bookSummary" placeholder="Book Summary" value="" required><%= book.bookSummary %></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="text-center">
+                         <button type="submit" id="submit" class="btn btn-primary create-account">Update Book</button>
+                         <a href="/books/myBooks" class="btn btn-primary create-account">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>
